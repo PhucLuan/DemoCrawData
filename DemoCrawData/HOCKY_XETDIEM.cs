@@ -12,22 +12,21 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class TIEU_CHI
+    public partial class HOCKY_XETDIEM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIEU_CHI()
+        public HOCKY_XETDIEM()
         {
-            this.KQ_THEO_TIEUCHI = new HashSet<KQ_THEO_TIEUCHI>();
-            this.TIEU_CHUAN = new HashSet<TIEU_CHUAN>();
+            this.DIEMs = new HashSet<DIEM>();
         }
     
-        public string MaTieuChi { get; set; }
-        public string TenTieuChi { get; set; }
-        public Nullable<short> TongTienDo { get; set; }
+        public int MaHocKy { get; set; }
+        public string HocKy { get; set; }
+        public Nullable<int> Nam { get; set; }
+        public Nullable<int> MaThoiGianXetDiem { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KQ_THEO_TIEUCHI> KQ_THEO_TIEUCHI { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TIEU_CHUAN> TIEU_CHUAN { get; set; }
+        public virtual ICollection<DIEM> DIEMs { get; set; }
+        public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }
     }
 }

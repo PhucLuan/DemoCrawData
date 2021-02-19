@@ -58,11 +58,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activityhistory.cs" />
+    <Compile Include="CAP_TIEU_CHUAN.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
     <Compile Include="CHUONG_TRINH.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DIEM.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="DON_VI.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -70,55 +77,72 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HOAT_DONG.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+    <Compile Include="HOCKY_XETDIEM.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
-    <Compile Include="KETQUA_THEO_TIEUCHI.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+    <Compile Include="KQ_THEO_TIEUCHI.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="LOAI_DIEM.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
-    <Compile Include="LOAI_HOAT_DONG.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+    <Compile Include="LOAI_TIEU_CHUAN.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSV5T.Context.cs">
+    <Compile Include="ModelSV.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSV5T.Context.tt</DependentUpon>
+      <DependentUpon>ModelSV.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSV5T.cs">
+    <Compile Include="ModelSV.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelSV5T.Designer.cs">
+    <Compile Include="ModelSV.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSV5T.edmx</DependentUpon>
+      <DependentUpon>ModelSV.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QUY_DINH.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+    <Compile Include="QUYDINH_DIEM.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewActivityService.cs" />
+    <Compile Include="ROLE.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="SINH_VIEN.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
+    <Compile Include="ThamGiaChuongTrinhDTO.cs" />
     <Compile Include="THAMGIA_CHUONGTRINH.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
-    <Compile Include="THAMGIA_HOATDONG.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+    <Compile Include="THOIDIEM_SV_THAMGIA.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="THOIGIAN_XET.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THUCHIEN_TIEUCHUAN.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="TIEU_CHI.cs">
-      <DependentUpon>ModelSV5T.tt</DependentUpon>
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIEU_CHUAN.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USER.cs">
+      <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -132,12 +156,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="ModelSV5T.edmx">
+    <EntityDeploy Include="ModelSV.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSV5T.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelSV.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelSV5T.edmx.diagram">
-      <DependentUpon>ModelSV5T.edmx</DependentUpon>
+    <None Include="ModelSV.edmx.diagram">
+      <DependentUpon>ModelSV.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,19 +178,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelSV5T.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelSV5T.Context.cs</LastGenOutput>
-      <DependentUpon>ModelSV5T.edmx</DependentUpon>
-    </Content>
-    <Content Include="ModelSV5T.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSV5T.edmx</DependentUpon>
-      <LastGenOutput>ModelSV5T.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ModelSV.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSV.edmx</DependentUpon>
+      <LastGenOutput>ModelSV.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelSV.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSV.edmx</DependentUpon>
+      <LastGenOutput>ModelSV.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

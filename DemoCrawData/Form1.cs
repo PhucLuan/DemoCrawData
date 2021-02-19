@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.SqlServer;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,12 +20,15 @@ namespace DemoCrawData
         {
             InitializeComponent();
         }
+        DT_QL_SV5TOT_6Entities db = new DT_QL_SV5TOT_6Entities();
 
         private DataTable dt;
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            string htmlCode = System.IO.File.ReadAllText(@"D:\HỌC TẬP\KINH TẾ TRẺ\demo.txt");
+            ReviewActivityService reviewActivityService = new ReviewActivityService();
+
+            string htmlCode = System.IO.File.ReadAllText(@"C:\HỌC TẬP\KINH TẾ TRẺ\demo.txt");
 
             HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
 
@@ -35,36 +40,47 @@ namespace DemoCrawData
 
             int count = 0;
             List<string> Dshd = new List<string>();
-
+            List<Activityhistory> activityhistories = new List<Activityhistory>();
+            activityhistories
+                            .Add(new Activityhistory("Test chương trình cấp khoa BIT",
+                                                      "Khoa Công Nghệ Thông Tin Kinh Doanh",
+                                                      DateTime.ParseExact("10/10/2010", "d/M/yyyy", CultureInfo.InvariantCulture),
+                                                      "Cuối",
+                                                      2020,
+                                                      null));
+            //Crawdata from youth
             foreach (HtmlNode table in doc.DocumentNode.SelectNodes("/html/body/form/div[3]/div[2]/div/table"))
             {
-                foreach (HtmlNode row in table.SelectNodes("/html/body/form/div[3]/div[2]/div/table/tbody//tr"))
+                foreach (HtmlNode row in table.SelectNodes("/html/body/form/div[3]/div[2]/div/table//tr"))
                 {
-                    //if (row.InnerText == "&lt;&lt;&lt; Quay lại")
-                    //{
-                    //    break;
-                    //}
+
                     if (count == 0)
                     {
                         List<string> check = row.SelectNodes("th").ToList().Select(x => x.InnerText).Take(8).ToList();
-                        dataGridView1.Rows.Add(check[0],check[1], check[2], check[3], check[4], check[5], check[6], check[7]);
                     }
                     else
                     {
                         List<string> check = row.SelectNodes("td").ToList().Select(x => x.InnerText).Take(8).ToList();
-                        dataGridView1.Rows.Add(check[0], check[1], check[2], check[3], check[4], check[5], check[6], check[7]);
+                        string GiaiThuong = check[7];
+                        activityhistories
+                            .Add(new Activityhistory(check[0].ToString(),
+                                                      check[1],
+                                                      DateTime.ParseExact(check[2].ToString(), "d/M/yyyy", CultureInfo.InvariantCulture),
+                                                      check[3],
+                                                      int.Parse(check[4]),
+                                                      GiaiThuong == "&nbsp;"?null:check[7]));
+                        //dataGridView1.Rows.Add(check[0], check[1], check[2], check[3], check[4], check[5], check[6], check[7]);
                     }
                     count++;
                 }
             }
+            reviewActivityService.ReviewActivity("31171022596", db, activityhistories);
+            dataGridView1.DataSource = activityhistories;
         }
 
 
         List<string> ListStuActivity = new List<string>();
-        
 
-        ĐT_QL_SV5TOTEntities db = new ĐT_QL_SV5TOTEntities();
-        
 
         private void btnValidation_Click(object sender, EventArgs e)
         {
@@ -79,10 +95,10 @@ namespace DemoCrawData
             //Kiểm tra chương trình thuộc hoạt động nào
             foreach (var item in commons)
             {
-                int IDhoatDong = Convert.ToInt32(db.CHUONG_TRINH.Where(x => x.TenChuongTrinh.ToString() == item.ToString()).Select(x => x.MaHoatDong).FirstOrDefault());
-                var tieuChi = db.HOAT_DONG.Where(x => x.MaHoatDong == IDhoatDong).Select(x => x.MaTieuChi).FirstOrDefault();
+                int IDhoatDong = Convert.ToInt32(db.CHUONG_TRINH.Where(x => x.TenChuongTrinh.ToString() == item.ToString()).Select(x => x.MaTieuChuan).FirstOrDefault());
+                var tieuChi = db.TIEU_CHUAN.Where(x => x.MaTieuChuan == IDhoatDong).Select(x => x.MaTieuChi).FirstOrDefault();
             }
-            
+
         }
     }
 }

@@ -12,14 +12,13 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class THAMGIA_CHUONGTRINH
+    public partial class NHANVIEN
     {
-        public string Mssv { get; set; }
-        public int MaChuongTrinh { get; set; }
-        public Nullable<int> Giai { get; set; }
-        public int MaThoiGian { get; set; }
+        public int IDnv { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> IDuser { get; set; }
     
-        public virtual SINH_VIEN SINH_VIEN { get; set; }
-        public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }
+        public virtual USER USER { get; set; }
     }
 }

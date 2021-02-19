@@ -12,29 +12,31 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class HOAT_DONG
+    public partial class TIEU_CHUAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HOAT_DONG()
+        public TIEU_CHUAN()
         {
             this.CHUONG_TRINH = new HashSet<CHUONG_TRINH>();
-            this.QUY_DINH = new HashSet<QUY_DINH>();
-            this.THAMGIA_HOATDONG = new HashSet<THAMGIA_HOATDONG>();
+            this.QUYDINH_DIEM = new HashSet<QUYDINH_DIEM>();
+            this.THUCHIEN_TIEUCHUAN = new HashSet<THUCHIEN_TIEUCHUAN>();
         }
     
-        public int MaHoatDong { get; set; }
-        public string TenHoatDong { get; set; }
+        public int MaTieuChuan { get; set; }
+        public string TenTieuChuan { get; set; }
         public string MaTieuChi { get; set; }
-        public Nullable<bool> MaLoaiHoatDong { get; set; }
-        public string Cap { get; set; }
+        public Nullable<bool> MaLoaiTieuChuan { get; set; }
+        public Nullable<int> Cap { get; set; }
+        public Nullable<bool> QuyDinhGiai { get; set; }
     
+        public virtual CAP_TIEU_CHUAN CAP_TIEU_CHUAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHUONG_TRINH> CHUONG_TRINH { get; set; }
-        public virtual LOAI_HOAT_DONG LOAI_HOAT_DONG { get; set; }
+        public virtual LOAI_TIEU_CHUAN LOAI_TIEU_CHUAN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUYDINH_DIEM> QUYDINH_DIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THUCHIEN_TIEUCHUAN> THUCHIEN_TIEUCHUAN { get; set; }
         public virtual TIEU_CHI TIEU_CHI { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QUY_DINH> QUY_DINH { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THAMGIA_HOATDONG> THAMGIA_HOATDONG { get; set; }
     }
 }

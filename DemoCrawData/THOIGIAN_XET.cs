@@ -17,14 +17,30 @@ namespace DemoCrawData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public THOIGIAN_XET()
         {
-            this.SINH_VIEN = new HashSet<SINH_VIEN>();
+            this.HOCKY_XETDIEM = new HashSet<HOCKY_XETDIEM>();
+            this.KQ_THEO_TIEUCHI = new HashSet<KQ_THEO_TIEUCHI>();
+            this.QUYDINH_DIEM = new HashSet<QUYDINH_DIEM>();
+            this.THAMGIA_CHUONGTRINH = new HashSet<THAMGIA_CHUONGTRINH>();
+            this.THOIDIEM_SV_THAMGIA = new HashSet<THOIDIEM_SV_THAMGIA>();
+            this.THUCHIEN_TIEUCHUAN = new HashSet<THUCHIEN_TIEUCHUAN>();
         }
     
-        public string MaThoiGian { get; set; }
+        public int MaThoiGian { get; set; }
         public Nullable<System.DateTime> TuNgay { get; set; }
         public Nullable<System.DateTime> DenNgay { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SINH_VIEN> SINH_VIEN { get; set; }
+        public virtual ICollection<HOCKY_XETDIEM> HOCKY_XETDIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KQ_THEO_TIEUCHI> KQ_THEO_TIEUCHI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUYDINH_DIEM> QUYDINH_DIEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THAMGIA_CHUONGTRINH> THAMGIA_CHUONGTRINH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THOIDIEM_SV_THAMGIA> THOIDIEM_SV_THAMGIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THUCHIEN_TIEUCHUAN> THUCHIEN_TIEUCHUAN { get; set; }
     }
 }

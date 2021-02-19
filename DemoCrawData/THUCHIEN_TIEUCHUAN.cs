@@ -12,15 +12,14 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class QUY_DINH
+    public partial class THUCHIEN_TIEUCHUAN
     {
-        public string MaDonVi { get; set; }
-        public int MaHoatDong { get; set; }
-        public int MaLoaiDiem { get; set; }
-        public Nullable<int> DiemToiThieu { get; set; }
+        public string Mssv { get; set; }
+        public int MaTieuChuan { get; set; }
+        public int MaThoiGian { get; set; }
     
-        public virtual DON_VI DON_VI { get; set; }
-        public virtual HOAT_DONG HOAT_DONG { get; set; }
-        public virtual LOAI_DIEM LOAI_DIEM { get; set; }
+        public virtual SINH_VIEN SINH_VIEN { get; set; }
+        public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }
+        public virtual TIEU_CHUAN TIEU_CHUAN { get; set; }
     }
 }

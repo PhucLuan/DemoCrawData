@@ -17,13 +17,16 @@ namespace DemoCrawData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LOAI_DIEM()
         {
-            this.QUY_DINH = new HashSet<QUY_DINH>();
+            this.DIEMs = new HashSet<DIEM>();
+            this.QUYDINH_DIEM = new HashSet<QUYDINH_DIEM>();
         }
     
         public int MaLoaiDiem { get; set; }
         public string TenLoaiDiem { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QUY_DINH> QUY_DINH { get; set; }
+        public virtual ICollection<DIEM> DIEMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUYDINH_DIEM> QUYDINH_DIEM { get; set; }
     }
 }

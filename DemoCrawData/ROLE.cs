@@ -12,22 +12,18 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class TIEU_CHI
+    public partial class ROLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIEU_CHI()
+        public ROLE()
         {
-            this.KQ_THEO_TIEUCHI = new HashSet<KQ_THEO_TIEUCHI>();
-            this.TIEU_CHUAN = new HashSet<TIEU_CHUAN>();
+            this.USERs = new HashSet<USER>();
         }
     
-        public string MaTieuChi { get; set; }
-        public string TenTieuChi { get; set; }
-        public Nullable<short> TongTienDo { get; set; }
+        public int IDrole { get; set; }
+        public string Role1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KQ_THEO_TIEUCHI> KQ_THEO_TIEUCHI { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TIEU_CHUAN> TIEU_CHUAN { get; set; }
+        public virtual ICollection<USER> USERs { get; set; }
     }
 }

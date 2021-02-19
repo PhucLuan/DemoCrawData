@@ -12,12 +12,11 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class THAMGIA_CHUONGTRINH
+    public partial class THOIDIEM_SV_THAMGIA
     {
         public string Mssv { get; set; }
-        public int MaChuongTrinh { get; set; }
-        public Nullable<int> Giai { get; set; }
         public int MaThoiGian { get; set; }
+        public Nullable<System.DateTime> ThoiGian_DK { get; set; }
     
         public virtual SINH_VIEN SINH_VIEN { get; set; }
         public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }

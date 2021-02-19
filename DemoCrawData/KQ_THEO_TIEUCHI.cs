@@ -12,14 +12,19 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class KETQUA_THEO_TIEUCHI
+    public partial class KQ_THEO_TIEUCHI
     {
         public string Mssv { get; set; }
         public string MaTieuChi { get; set; }
-        public string DanhGia { get; set; }
-        public Nullable<int> TienDoDat { get; set; }
+        public Nullable<int> DanhGia { get; set; }
+        public Nullable<short> TienDoHDBatBuoc { get; set; }
+        public Nullable<bool> TienDoHDKhac { get; set; }
+        public Nullable<short> TienDoTong { get; set; }
+        public int MaThoiGian { get; set; }
     
+        public virtual CAP_TIEU_CHUAN CAP_TIEU_CHUAN { get; set; }
         public virtual TIEU_CHI TIEU_CHI { get; set; }
         public virtual SINH_VIEN SINH_VIEN { get; set; }
+        public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }
     }
 }

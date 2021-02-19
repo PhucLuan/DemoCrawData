@@ -12,18 +12,19 @@ namespace DemoCrawData
     using System;
     using System.Collections.Generic;
     
-    public partial class CHUONG_TRINH
+    public partial class QUYDINH_DIEM
     {
-        public int MaChuongTrinh { get; set; }
-        public string TenChuongTrinh { get; set; }
+        public int MaQuyDinhDiem { get; set; }
+        public Nullable<int> MaLoaiDiem { get; set; }
+        public Nullable<int> DiemToiThieu { get; set; }
+        public string MaDonVi { get; set; }
         public Nullable<int> MaTieuChuan { get; set; }
-        public Nullable<System.DateTime> ThoiGianDienRa { get; set; }
-        public string DonViToChuc { get; set; }
-        public string MoTa { get; set; }
-        public string LinkBaiDang { get; set; }
-        public string HinhAnh { get; set; }
+        public Nullable<int> Mathoigian { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
     
         public virtual DON_VI DON_VI { get; set; }
+        public virtual LOAI_DIEM LOAI_DIEM { get; set; }
         public virtual TIEU_CHUAN TIEU_CHUAN { get; set; }
+        public virtual THOIGIAN_XET THOIGIAN_XET { get; set; }
     }
 }

@@ -17,7 +17,8 @@ namespace DemoCrawData
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DON_VI()
         {
-            this.QUY_DINH = new HashSet<QUY_DINH>();
+            this.CHUONG_TRINH = new HashSet<CHUONG_TRINH>();
+            this.QUYDINH_DIEM = new HashSet<QUYDINH_DIEM>();
             this.SINH_VIEN = new HashSet<SINH_VIEN>();
         }
     
@@ -25,7 +26,9 @@ namespace DemoCrawData
         public string TenDonVi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QUY_DINH> QUY_DINH { get; set; }
+        public virtual ICollection<CHUONG_TRINH> CHUONG_TRINH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QUYDINH_DIEM> QUYDINH_DIEM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SINH_VIEN> SINH_VIEN { get; set; }
     }
