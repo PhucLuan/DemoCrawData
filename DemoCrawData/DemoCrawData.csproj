@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activityhistory.cs" />
+    <Compile Include="ActivityHistoryService.cs" />
     <Compile Include="CAP_TIEU_CHUAN.cs">
       <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
@@ -113,6 +114,7 @@
       <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>
     <Compile Include="ReviewActivityService.cs" />
+    <Compile Include="ReviewScroreService.cs" />
     <Compile Include="ROLE.cs">
       <DependentUpon>ModelSV.tt</DependentUpon>
     </Compile>

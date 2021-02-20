@@ -11,8 +11,24 @@ namespace DemoCrawData
     {
         public void ReviewActivity(string mssv, DT_QL_SV5TOT_6Entities dbContext,List<Activityhistory> activityhistories)
         {
+            if (dbContext == null || activityhistories == null)
+            {
+                return;
+            }
+
             SINH_VIEN sv = dbContext.SINH_VIEN.Find(mssv);
+
+            if (sv == null)
+            {
+                return;
+            }
+
             var ListActivity = dbContext.CHUONG_TRINH.Select(x => x.TenChuongTrinh).ToList();
+
+            if (ListActivity == null)
+            {
+                return;
+            }
 
             foreach (var item in activityhistories)
             {
@@ -32,7 +48,7 @@ namespace DemoCrawData
                             continue;
                         }
                     }
-                    if (String.IsNullOrEmpty(item.Giaithuong))
+                    if (String.IsNullOrEmpty(item.Giaithuong) || item.Giaithuong.Trim().Substring(0,4) != "Giải")
                     {
                         if (tieuChuan.QuyDinhGiai == true)
                         {

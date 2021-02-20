@@ -26,56 +26,66 @@ namespace DemoCrawData
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            ReviewActivityService reviewActivityService = new ReviewActivityService();
+            //ReviewActivityService reviewActivityService = new ReviewActivityService();
 
-            string htmlCode = System.IO.File.ReadAllText(@"C:\HỌC TẬP\KINH TẾ TRẺ\demo.txt");
+            //string htmlCode = System.IO.File.ReadAllText(@"C:\HỌC TẬP\KINH TẾ TRẺ\demo.txt");
 
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            //ActivityHistoryService activityHistoryService = new ActivityHistoryService();
+            //reviewActivityService.ReviewActivity("31171022596", db, activityHistoryService.GetActivityhistories(htmlCode));
+            //dataGridView1.DataSource = activityHistoryService.GetActivityhistories(htmlCode);
 
-            doc.LoadHtml(htmlCode);
+            DIEM diemSV = new DIEM { Mssv = "31171025965", MaHocKy = 2, MaLoaiDiem = 1, Diem1 = 80 };
+            db.DIEMs.Add(diemSV);
+            ReviewScroreService.ReviewScrore(db, diemSV);
 
-            dt = new DataTable();
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Value", typeof(string));
 
-            int count = 0;
-            List<string> Dshd = new List<string>();
-            List<Activityhistory> activityhistories = new List<Activityhistory>();
-            activityhistories
-                            .Add(new Activityhistory("Test chương trình cấp khoa BIT",
-                                                      "Khoa Công Nghệ Thông Tin Kinh Doanh",
-                                                      DateTime.ParseExact("10/10/2010", "d/M/yyyy", CultureInfo.InvariantCulture),
-                                                      "Cuối",
-                                                      2020,
-                                                      null));
-            //Crawdata from youth
-            foreach (HtmlNode table in doc.DocumentNode.SelectNodes("/html/body/form/div[3]/div[2]/div/table"))
-            {
-                foreach (HtmlNode row in table.SelectNodes("/html/body/form/div[3]/div[2]/div/table//tr"))
-                {
 
-                    if (count == 0)
-                    {
-                        List<string> check = row.SelectNodes("th").ToList().Select(x => x.InnerText).Take(8).ToList();
-                    }
-                    else
-                    {
-                        List<string> check = row.SelectNodes("td").ToList().Select(x => x.InnerText).Take(8).ToList();
-                        string GiaiThuong = check[7];
-                        activityhistories
-                            .Add(new Activityhistory(check[0].ToString(),
-                                                      check[1],
-                                                      DateTime.ParseExact(check[2].ToString(), "d/M/yyyy", CultureInfo.InvariantCulture),
-                                                      check[3],
-                                                      int.Parse(check[4]),
-                                                      GiaiThuong == "&nbsp;"?null:check[7]));
-                        //dataGridView1.Rows.Add(check[0], check[1], check[2], check[3], check[4], check[5], check[6], check[7]);
-                    }
-                    count++;
-                }
-            }
-            reviewActivityService.ReviewActivity("31171022596", db, activityhistories);
-            dataGridView1.DataSource = activityhistories;
+            //activityHistoryService.GetActivityhistories(htmlCode);
+            //HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+
+            //doc.LoadHtml(htmlCode);
+
+            //dt = new DataTable();
+            //dt.Columns.Add("Name", typeof(string));
+            //dt.Columns.Add("Value", typeof(string));
+
+            //int count = 0;
+            //List<string> Dshd = new List<string>();
+            //List<Activityhistory> activityhistories = new List<Activityhistory>();
+            //activityhistories
+            //                .Add(new Activityhistory("Test chương trình cấp khoa BIT",
+            //                                          "Khoa Công Nghệ Thông Tin Kinh Doanh",
+            //                                          DateTime.ParseExact("10/10/2010", "d/M/yyyy", CultureInfo.InvariantCulture),
+            //                                          "Cuối",
+            //                                          2020,
+            //                                          null));
+            ////Crawdata from youth
+            //foreach (HtmlNode table in doc.DocumentNode.SelectNodes("/html/body/form/div[3]/div[2]/div/table"))
+            //{
+            //    foreach (HtmlNode row in table.SelectNodes("/html/body/form/div[3]/div[2]/div/table//tr"))
+            //    {
+
+            //        if (count == 0)
+            //        {
+            //            List<string> check = row.SelectNodes("th").ToList().Select(x => x.InnerText).Take(8).ToList();
+            //        }
+            //        else
+            //        {
+            //            List<string> check = row.SelectNodes("td").ToList().Select(x => x.InnerText).Take(8).ToList();
+            //            string GiaiThuong = check[7];
+            //            activityhistories
+            //                .Add(new Activityhistory(check[0].ToString(),
+            //                                          check[1],
+            //                                          DateTime.ParseExact(check[2].ToString(), "d/M/yyyy", CultureInfo.InvariantCulture),
+            //                                          check[3],
+            //                                          int.Parse(check[4]),
+            //                                          GiaiThuong == "&nbsp;"?null:check[7]));
+            //            //dataGridView1.Rows.Add(check[0], check[1], check[2], check[3], check[4], check[5], check[6], check[7]);
+            //        }
+            //        count++;
+            //    }
+            //}
+
         }
 
 
